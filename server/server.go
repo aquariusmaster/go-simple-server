@@ -3,6 +3,7 @@ package server
 import (
 	"fmt"
 	"net/http"
+	"html/template"
 )
 
 func InitServer() {
@@ -12,5 +13,9 @@ func InitServer() {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello world!</h1>")
+	t, err := template.ParseFiles("templates/index.html")
+	if err!= nil {
+		fmt.Fprintf(w, err.Error())
+	}
+	t.ExecuteTemplate(w, "index", nil)
 }
