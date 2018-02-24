@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"go-simple-server/server"
+	"github.com/aquariusmaster/go-simple-server/server"
 )
 
 func main() {
